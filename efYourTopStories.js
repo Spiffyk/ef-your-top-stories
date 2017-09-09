@@ -22,9 +22,8 @@ const CHRONO_GET_VAR = CHRONO_GET_VAR_NAME + "=" + CHRONO_GET_VAR_VALUE;
 
 chrome.webRequest.onBeforeRequest.addListener(function(details) {
 	'use strict';
-	var split = details.url.split("/");
-	console.log(split);
 
+	var split = details.url.split("/");
 	if (split.length === 4) {
 		if (split[3].startsWith("?")) {
 			var gets = split[3].substring(1).split("&");
@@ -47,11 +46,6 @@ chrome.webRequest.onBeforeRequest.addListener(function(details) {
 			return { redirectUrl: details.url + "?" + CHRONO_GET_VAR };
 		}
 	}
-//	if (details.url.includes("?")) {
-//		return { redirectUrl: details.url + "&sk=h_chr" };
-//	} else {
-//		return { redirectUrl: details.url + "?sk=h_chr" };
-//	}
 }, {
 	urls: ["*://*.facebook.com/*"]
 }, ["blocking"]);
