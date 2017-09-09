@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Ef your Top Stories",
+  "version": "0.0.1",
+
+  "description": "A simple extension to force Facebook to always show content in chronological order",
+
+  "author": "Oto Šťáva",
+
+  "background": {
+    "scripts": ["efYourTopStories.js"],
+    "persistent": true
+  },
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "*://*.facebook.com/"
+  ]
+}
